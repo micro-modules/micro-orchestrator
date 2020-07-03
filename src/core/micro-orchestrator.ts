@@ -1,6 +1,6 @@
 import { Container, interfaces } from 'inversify';
 
-import { MicroModule } from './micro.module';
+import { MicroModule } from './micro-module';
 import { ModuleContainer } from '../elements/module-container';
 import { Logger } from '../utils/logger';
 import { Dictionary } from '../types';

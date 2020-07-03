@@ -1,18 +1,16 @@
 {
-  "name": "@uprtcl/micro-orchestrator",
-  "version": "0.0.7-alpha.39",
-  "description": "Library to help coordinate different frontend modules to build entire applications from small building blocks",
-  "homepage": "https://uprtcl.io",
+  "name": "@micro-modules/micro-orchestrator",
+  "version": "0.0.1-alpha",
+  "description": "Micro-fronted orchestrator to build entire web application from small MicroModules building blocks",
+  "homepage": "https://micro-modules.github.io",
   "scripts": {
     "clean": "rimraf dist",
     "dev": "rollup -w -c rollup.config.ts",
     "build": "npm run clean && rollup -c rollup.config.ts",
-    "docs:build": "rimraf ../../docs/packages/micro-orchestrator && typedoc && mv ../../docs/.vuepress/api-sidebar-relative.json ../../docs/packages/micro-orchestrator/api/sidebar.json",
     "test": "karma start --coverage",
     "test:watch": "karma start --auto-watch=true --single-run=false"
   },
   "dependencies": {
-    "@rollup/plugin-typescript": "^5.0.0",
     "inversify": "^5.0.1",
     "reflect-metadata": "^0.1.13"
   },
@@ -21,6 +19,7 @@
     "@open-wc/testing-helpers": "1.7.2",
     "@open-wc/testing-karma": "^3.3.1",
     "@rollup/plugin-json": "^4.0.1",
+    "@rollup/plugin-typescript": "^5.0.0",
     "@types/mocha": "^5.2.7",
     "@types/node": "^10.11.0",
     "istanbul-instrumenter-loader": "^3.0.1",
@@ -40,7 +39,7 @@
   "keywords": [
     "micro-frontends",
     "modules",
-    "micro",
+    "micro"
   ],
   "main": "dist/micro-orchestrator.umd.js",
   "module": "dist/micro-orchestrator.es5.js",

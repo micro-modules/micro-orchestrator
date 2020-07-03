@@ -1,11 +1,8 @@
 import { interfaces } from 'inversify';
 
-import { RequestDependencyEvent } from './module-container';
 import { Constructor, CustomElement } from '../types';
-import { i18nextBaseModule } from '../modules/i18n/i18next-base.module';
 
 export interface ConnectedElement {
-  t: (key: string) => string;
   request<T>(dependency: interfaces.ServiceIdentifier<T>, options?: { optional: boolean }): T;
   requestAll<T>(dependency: interfaces.ServiceIdentifier<T>, options?: { optional: boolean }): T[];
 }
@@ -17,17 +14,6 @@ export const moduleConnect = <T extends Constructor<CustomElement>>(
   prototype: any;
 } & T =>
   class extends baseElement implements ConnectedElement {
-    t: (key: string) => string = (key) => key;
-
-    connectedCallback() {
-      super.connectedCallback();
-
-      try {
-        this.t = this.request(i18nextBaseModule.bindings.Translate, { optional: true });
-      } catch (e) {
-        console.warn('No translate function present');
-      }
-    }
 
     private requestGeneric<T>(
       dependency: interfaces.ServiceIdentifier<T>,
